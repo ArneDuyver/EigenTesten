@@ -1,4 +1,4 @@
-package be.kuleuven.periode;
+package Tdd;
 
 public class InvalidPeriodInputException extends RuntimeException{
 }

@@ -1,3 +1,5 @@
+package Algoritmen;
+
 import com.sun.org.apache.bcel.internal.generic.LineNumberGen;
 import org.junit.Before;
 import org.junit.Test;

@@ -1,3 +1,5 @@
+package Algoritmen;
+
 import java.util.ArrayList;
 
 public class KoninginnenProbleem {

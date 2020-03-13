@@ -1,3 +1,5 @@
+package Json;
+
 import com.google.gson.annotations.SerializedName;
 
 public class Car {

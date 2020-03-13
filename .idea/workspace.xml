@@ -2,16 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4ca772a7-fed4-4ff7-8756-07ee05763fc5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Algoritmen/Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Firebase/test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Json/test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Tdd/test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Algoritmen/test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Firebase/test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Json/test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Tdd/tbd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Algoritmen/Faculteit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Algoritmen/Faculteit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Algoritmen/KoninginnenProbleem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Algoritmen/KoninginnenProbleem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Algoritmen/TaakPloegenIndeling.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Algoritmen/TaakPloegenIndeling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Algoritmen/TorensVanHanoi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Algoritmen/TorensVanHanoi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Json/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Json/Car.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Json/JsonProbeersels.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Json/JsonProbeersels.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Tdd/InvalidPeriodInputException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tdd/InvalidPeriodInputException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Tdd/MainActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Tdd/Periode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tdd/Periode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Algoritmen/FaculteitTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Algoritmen/FaculteitTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Algoritmen/KoninginnenProbleemTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Algoritmen/KoninginnenProbleemTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Algoritmen/TaakPloegenIndelingTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Algoritmen/TaakPloegenIndelingTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Algoritmen/TorensVanHanoiTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Algoritmen/TorensVanHanoiTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Tdd/PeriodeTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tdd/PeriodeTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +58,104 @@
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
   </component>
+  <component name="RunManager" selected="Gradle.PeriodeTests.isInPeriode_datumLigtInPeriode_true">
+    <configuration name="TorensVanHanoi" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="TorensVanHanoi" />
+      <module name="EigenTesten.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FaculteitTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;Algoritmen.FaculteitTests&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="FaculteitTests.faculteit_0_1" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;Algoritmen.FaculteitTests.faculteit_0_1&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="PeriodeTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;Tdd.PeriodeTests&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="PeriodeTests.isInPeriode_datumLigtInPeriode_true" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;Tdd.PeriodeTests.isInPeriode_datumLigtInPeriode_true&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.PeriodeTests.isInPeriode_datumLigtInPeriode_true" />
+        <item itemvalue="Gradle.FaculteitTests" />
+        <item itemvalue="Gradle.FaculteitTests.faculteit_0_1" />
+        <item itemvalue="Gradle.PeriodeTests" />
+        <item itemvalue="Gradle.FaculteitTests" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -65,10 +174,30 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="178" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1584108761182" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1584111280919">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584111280919" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1584111280918">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584111280918" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1584111280918">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584111280918" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1584111280919">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584111280919" />
     <state x="461" y="162" key="SettingsEditor" timestamp="1584108743505">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1584108743505" />
+    <state x="776" y="298" key="chooseDestDirectoryDialog" timestamp="1584110790058">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="776" y="298" key="chooseDestDirectoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584110790058" />
     <state x="656" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1584108669769">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

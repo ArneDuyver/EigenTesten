@@ -1,4 +1,4 @@
-package be.kuleuven.periode;
+package Tdd;
 
 import java.util.Date;
 
@@ -18,7 +18,7 @@ public class Periode {
 
         //DATAVALIDATIE
         if(date == null){
-            throw new InvalidPeriodInputException();
+            throw new Tdd.InvalidPeriodInputException();
         }
 
 

@@ -1,4 +1,4 @@
-package be.kuleuven.periode;
+package Tdd;
 
 import org.junit.After;
 import org.junit.Assert;
@@ -16,7 +16,7 @@ public class PeriodeTests {
 
     @Before
     public void setUp(){
-        this.periode = new Periode();
+        //this.periode = new Periode();
     }
 
     @After
