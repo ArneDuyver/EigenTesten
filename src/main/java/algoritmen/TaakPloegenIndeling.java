@@ -11,16 +11,9 @@ public class TaakPloegenIndeling {
         System.out.println("Hello\nWorld");
         //toonVerdeling(2,1,1,1);
 
-        String[][] oplossing2 = new String[2][2];
-        String leeg = Optional.empty();
-        oplossing2[0][0] = leeg;
-        Optional<String[][]> deOplossing2 = Optional.of(oplossing2);
-        System.out.println(deOplossing2.get()[0][0]);
-        String nieuweLetter = "b";
-
-        if( deOplossing2.get()[0][0].isEmpty()){
-            System.out.println("Do stuff");
-        }
+        //Hoe kan je optional.empty in een array steken????
+        String leeg  = new String();
+        ;
     }
 
     /**
@@ -32,19 +25,18 @@ public class TaakPloegenIndeling {
      * @return Een 2D arraylist van strings waarbij de eerste array de rondes aangeeft en de tweede array het spel. De elementen zijn de teams die tegen elkaar spelen
      */
     public static Optional<String[][]> spelverdeling(int ploegen, int spelletjes, int dubbels, int rondes){
-        //TODO: code schrijven
+        //TODO: code schrijven: return een Optional.empty() als er geen oplossing gevonden kan worden
         //INPUT VALIDATIE
         if (ploegen%2!=0 || ploegen < 2 || spelletjes<1 || dubbels < 1 || rondes < 1 ){
             throw new algoritmen.InvalidSpelverdelingInputException();
         }
         String[][] oplossing = new String[rondes][spelletjes];
-        for()
 
 
         //TEST
         //oplossing[0][0] = "A-B";
-
-        return oplossing;
+        Optional<String[][]> deOplossing = Optional.ofNullable(oplossing);
+        return deOplossing;
     }
 
     /**
@@ -55,13 +47,13 @@ public class TaakPloegenIndeling {
      * @param rondes Het aantal rondes
      */
     public static void toonVerdeling(int ploegen, int spelletjes, int dubbels, int rondes){
-        //TODO: code schrijven die de 2D array mooi afdrukt: enkel via  " System.out.println(""); "
         Optional<String[][]> oplossing = spelverdeling(ploegen,spelletjes,dubbels,rondes);
-
         if (oplossing.isEmpty()){
             System.out.println("Er werd geen oplossing gevonden");
             return;
         }
+
+        //TODO: code schrijven die de 2D array mooi afdrukt: enkel via  " System.out.println(""); "
         String[][] deOplossing = oplossing.get();
         System.out.println(deOplossing[0][0]);
     }
