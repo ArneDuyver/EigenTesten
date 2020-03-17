@@ -26,7 +26,7 @@ public class KoninginnenprobleemTests {
         vorigeQ.add(3);
         vorigeQ.add(6);
         // 2. ACT
-        boolean result = probleem.isVeilig(rij,vorigeQ);
+        boolean result = KoninginnenProbleem.isVeilig(rij,vorigeQ);
         // 3. ASSERT
         assertThat(result,is(false));
     }
