@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="algoritmen.TddOpgaveTweeTesten" tests="3" skipped="0" failures="0" errors="0" timestamp="2020-03-28T19:33:44" hostname="SurfacePro4ArneDuyver" time="0.014">
+  <properties/>
+  <testcase name="makeShoeBox_36n36_15x36" classname="algoritmen.TddOpgaveTweeTesten" time="0.011"/>
+  <testcase name="makeShoeBox_38n38_10x76" classname="algoritmen.TddOpgaveTweeTesten" time="0.001"/>
+  <testcase name="makeShoeBox_36n37n35n36n38_15x146" classname="algoritmen.TddOpgaveTweeTesten" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
