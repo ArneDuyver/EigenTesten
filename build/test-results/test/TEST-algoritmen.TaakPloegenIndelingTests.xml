@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="algoritmen.TaakPloegenIndelingTests" tests="20" skipped="0" failures="0" errors="0" timestamp="2020-03-30T20:28:31" hostname="SurfacePro4ArneDuyver" time="0.036">
+  <properties/>
+  <testcase name="getPairs_0_EMPTY" classname="algoritmen.TaakPloegenIndelingTests" time="0.004"/>
+  <testcase name="getTeamsFromPair_YlineZ_YandZ" classname="algoritmen.TaakPloegenIndelingTests" time="0.007"/>
+  <testcase name="spelverdeling_0Ploegen_throwsException" classname="algoritmen.TaakPloegenIndelingTests" time="0.0"/>
+  <testcase name="getPairs_6_AllUniqueCombABCDEF" classname="algoritmen.TaakPloegenIndelingTests" time="0.0"/>
+  <testcase name="canPairGoThisRoundAndGame_SameInRoundSameInGame1_false" classname="algoritmen.TaakPloegenIndelingTests" time="0.001"/>
+  <testcase name="canPairGoThisRoundAndGame_NoneInRoundNoneInGame_true" classname="algoritmen.TaakPloegenIndelingTests" time="0.0"/>
+  <testcase name="getPairs_2_AlineB" classname="algoritmen.TaakPloegenIndelingTests" time="0.0"/>
+  <testcase name="getPairs_1_InvalidInputException" classname="algoritmen.TaakPloegenIndelingTests" time="0.01"/>
+  <testcase name="canPairGoThisRoundAndGame_SameInRoundNoneInGame1_false" classname="algoritmen.TaakPloegenIndelingTests" time="0.0"/>
+  <testcase name="getPairs_27_InvalidInputException" classname="algoritmen.TaakPloegenIndelingTests" time="0.0"/>
+  <testcase name="getTeamsFromPair_AlineB_AandB" classname="algoritmen.TaakPloegenIndelingTests" time="0.0"/>
+  <testcase name="canPairGoThisRoundAndGame_SameInRoundNoneInGame2_false" classname="algoritmen.TaakPloegenIndelingTests" time="0.001"/>
+  <testcase name="spelverdeling_neg1rondes_throwsException" classname="algoritmen.TaakPloegenIndelingTests" time="0.001"/>
+  <testcase name="spelverdeling_0dubbels_throwsException" classname="algoritmen.TaakPloegenIndelingTests" time="0.001"/>
+  <testcase name="canPairGoThisRoundAndGame_OtherInRoundOtherInGame_true" classname="algoritmen.TaakPloegenIndelingTests" time="0.001"/>
+  <testcase name="canPairGoThisRoundAndGame_NoneInRoundSameInGame1_false" classname="algoritmen.TaakPloegenIndelingTests" time="0.001"/>
+  <testcase name="canPairGoThisRoundAndGame_OtherInRoundNoneInGame_true" classname="algoritmen.TaakPloegenIndelingTests" time="0.0"/>
+  <testcase name="spelverdeling_0Spelletjes_throwsException" classname="algoritmen.TaakPloegenIndelingTests" time="0.0"/>
+  <testcase name="canPairGoThisRoundAndGame_NoneInRoundOtherInGame_true" classname="algoritmen.TaakPloegenIndelingTests" time="0.001"/>
+  <testcase name="spelverdeling_onevenPloegen_throwsException" classname="algoritmen.TaakPloegenIndelingTests" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -24,33 +24,26 @@ public class TaakPloegenIndeling {
      * @return Een 2D arraylist van strings waarbij de eerste array de rondes aangeeft en de tweede array het spel. De elementen zijn de teams die tegen elkaar spelen
      */
     public static Optional<String[][]> spelverdeling(int ploegen, int spelletjes, int dubbels, int rondes){
-        //TODO: code schrijven: return een Optional.empty() als er geen oplossing gevonden kan worden
         //INPUT VALIDATIE
         if (ploegen%2!=0 || ploegen < 2 || spelletjes<1 || dubbels < 1 || rondes < 1 || ploegen > 26){
-            throw new algoritmen.InvalidSpelverdelingInputException();
+            throw new algoritmen.InvalidInputException();
         }
-        //Maak de teams, de matchups en de doubles
-        ArrayList<String> teams = getTeams(ploegen);
-        ArrayList<String> pairs = getPairs(teams);
+        //<editor-fold desc="Maak de teamparen en de doubles">
+        ArrayList<String> pairs = getPairs(ploegen);
         ArrayList<ArrayList<String>> doubles = new ArrayList<ArrayList<String>>();
-        for (int i = 1; i < dubbels; i++){
+        for (int i = 1; i < dubbels-1; i++){
             doubles.add(pairs);
         }
-
-        //
+        //</editor-fold>
+        //TODO: backtracking methode oproepen && return optional.empty als er geen oplossing is
         String[][] oplossing = new String[rondes][spelletjes];
 
-
-        //TEST
-//        for (int i = 0; i<oplossing.length;i++){
-//            for (int j = 0; j<oplossing[i].length;j++){
-//                oplossing[i][j] = i+"-"+j;
-//            }
-//        }
-        oplossing[0][0] = "A-B";
-        Optional<String[][]> deOplossing = Optional.ofNullable(oplossing);
-        return deOplossing;
+        return Optional.ofNullable(oplossing);
     }
+
+
+
+
 
     /**
      * Volgende methode print de ploegenindeling in de console
@@ -98,20 +91,14 @@ public class TaakPloegenIndeling {
         }
     }
 
-    /**
-     * Return an array of all letters
-     * @return A string with all 26 letters of the alphabet
-     */
-    public static String[] getLetters(){
-        return new String[]{"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
-    }
-    public static ArrayList<String> getTeams(int numberOfTeams){
+    public static ArrayList<String> getPairs(int numberOfTeams){
+        if (numberOfTeams<2 || numberOfTeams > 26){
+            throw new InvalidInputException();
+        }
         String[] letters = new String[]{"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
         ArrayList<String> teams = new ArrayList<>();
         Collections.addAll(teams, Arrays.copyOfRange(letters, 0, numberOfTeams));
-        return teams;
-    }
-    public static ArrayList<String> getPairs(ArrayList<String> teams){
+
         ArrayList<String> pairs = new ArrayList<>();
         for (int i = 0; i<teams.size();i++){
             for (int j = i+1;j<teams.size();j++){
@@ -121,4 +108,40 @@ public class TaakPloegenIndeling {
         }
         return pairs;
     }
+    public static ArrayList<String> getTeamsFromPair(String pair){
+        ArrayList<String> teams = new ArrayList<>();
+        for (int i = 0; i<pair.length();i++){
+            char c = pair.charAt(i);
+            String s =  ""+c;
+            if (!s.equals("-")){
+                teams.add(s);
+            }
+        }
+        return teams;
+    }
+    public static boolean canPairGoThisRoundAndGame(String[][] gameBoard, String pair, int round, int game){
+        ArrayList<String> teamsAlreadyHere = new ArrayList<>();
+        //get all teams this round
+        for (int i = 0; i < gameBoard[round].length; i++){
+            if (gameBoard[round][i] != null){
+                teamsAlreadyHere.addAll(getTeamsFromPair(gameBoard[round][i]));
+            }
+        }
+        //get all teams this game
+        for (int i = 0; i < gameBoard.length; i++){
+            if (gameBoard[i][game] != null){
+                teamsAlreadyHere.addAll(getTeamsFromPair(gameBoard[i][game]));
+            }
+        }
+        //get teams of pair
+        ArrayList<String> teamsOfPair = getTeamsFromPair(pair);
+        //if a team of a pair is in this game or round than return false else true
+        for (String team : teamsOfPair){
+            if (teamsAlreadyHere.contains(team)){
+                return false;
+            }
+        }
+        return true;
+    }
+
 }
