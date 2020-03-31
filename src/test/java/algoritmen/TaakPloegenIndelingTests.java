@@ -11,7 +11,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class TaakPloegenIndelingTests {
-
+    //TODO: Testen aanvullen
     //<editor-fold desc="Spelverdeling Testen">
     //Spelverdeling Testen
     //Invalid Input Testen
@@ -92,10 +92,10 @@ public class TaakPloegenIndelingTests {
     }
     //</editor-fold>
 
-    //<editor-fold desc="canPairGoThisRoundAndGame Testen">
-    //canPairGoThisRoundAndGame Testen
+    //<editor-fold desc="canPairGoThisRound Testen">
+    //canPairGoThisRound Testen
     @Test
-    public void canPairGoThisRoundAndGame_NoneInRoundNoneInGame_true(){
+    public void canPairGoThisRound_NoneInRound_true(){
         /*Temporary gameboard with pair to place [A-C], round 2, game 2 => true
                | Game1 | Game2 | Game3 |
         --------------------------------
@@ -110,11 +110,11 @@ public class TaakPloegenIndelingTests {
         int game = 2;
         String pairToPlace = "A-C";
 
-        Boolean solution = TaakPloegenIndeling.canPairGoThisRoundAndGame(tempGameBoard,pairToPlace,round,game);
+        Boolean solution = TaakPloegenIndeling.canPairGoThisRound(tempGameBoard,pairToPlace,round);
         assertThat(solution, is(true));
     }
     @Test
-    public void canPairGoThisRoundAndGame_OtherInRoundNoneInGame_true(){
+    public void canPairGoThisRound_OtherInRound_true(){
         /*Temporary gameboard with pair to place [D-E], round 0, game 2 => true
                | Game1 | Game2 | Game3 |
         --------------------------------
@@ -130,11 +130,11 @@ public class TaakPloegenIndelingTests {
         int game = 2;
         String pairToPlace = "D-E";
 
-        Boolean solution = TaakPloegenIndeling.canPairGoThisRoundAndGame(tempGameBoard,pairToPlace,round,game);
+        Boolean solution = TaakPloegenIndeling.canPairGoThisRound(tempGameBoard,pairToPlace,round);
         assertThat(solution, is(true));
     }
     @Test
-    public void canPairGoThisRoundAndGame_NoneInRoundOtherInGame_true(){
+    public void canPairGoThisRound_NoneInRound2_true(){
         /*Temporary gameboard with pair to place [D-E], round 2, game 0 => true
                | Game1 | Game2 | Game3 |
         --------------------------------
@@ -150,11 +150,11 @@ public class TaakPloegenIndelingTests {
         int game = 0;
         String pairToPlace = "D-E";
 
-        Boolean solution = TaakPloegenIndeling.canPairGoThisRoundAndGame(tempGameBoard,pairToPlace,round,game);
+        Boolean solution = TaakPloegenIndeling.canPairGoThisRound(tempGameBoard,pairToPlace,round);
         assertThat(solution, is(true));
     }
     @Test
-    public void canPairGoThisRoundAndGame_OtherInRoundOtherInGame_true(){
+    public void canPairGoThisRound_OtherInRound1_true(){
         /*Temporary gameboard with pair to place [E-F], round 0, game 1 => true
                | Game1 | Game2 | Game3 |
         --------------------------------
@@ -170,11 +170,11 @@ public class TaakPloegenIndelingTests {
         int game = 1;
         String pairToPlace = "E-F";
 
-        Boolean solution = TaakPloegenIndeling.canPairGoThisRoundAndGame(tempGameBoard,pairToPlace,round,game);
+        Boolean solution = TaakPloegenIndeling.canPairGoThisRound(tempGameBoard,pairToPlace,round);
         assertThat(solution, is(true));
     }
     @Test
-    public void canPairGoThisRoundAndGame_SameInRoundNoneInGame1_false(){
+    public void canPairGoThisRound_SameInRound3_false(){
         /*Temporary gameboard with pair to place [A-C], round 0, game 2 => false
                | Game1 | Game2 | Game3 |
         --------------------------------
@@ -189,11 +189,11 @@ public class TaakPloegenIndelingTests {
         int game = 2;
         String pairToPlace = "A-C";
 
-        Boolean solution = TaakPloegenIndeling.canPairGoThisRoundAndGame(tempGameBoard,pairToPlace,round,game);
+        Boolean solution = TaakPloegenIndeling.canPairGoThisRound(tempGameBoard,pairToPlace,round);
         assertThat(solution, is(false));
     }
     @Test
-    public void canPairGoThisRoundAndGame_SameInRoundNoneInGame2_false(){
+    public void canPairGoThisRound_SameInRound2_false(){
         /*Temporary gameboard with pair to place [A-C], round 1, game 2 => false
                | Game1 | Game2 | Game3 |
         --------------------------------
@@ -208,12 +208,12 @@ public class TaakPloegenIndelingTests {
         int game = 2;
         String pairToPlace = "A-C";
 
-        Boolean solution = TaakPloegenIndeling.canPairGoThisRoundAndGame(tempGameBoard,pairToPlace,round,game);
+        Boolean solution = TaakPloegenIndeling.canPairGoThisRound(tempGameBoard,pairToPlace,round);
         assertThat(solution, is(false));
     }
     @Test
-    public void canPairGoThisRoundAndGame_NoneInRoundSameInGame1_false(){
-        /*Temporary gameboard with pair to place [A-C], round 2, game 0 => false
+    public void canPairGoThisRound_NoneInRound1_true(){
+        /*Temporary gameboard with pair to place [A-C], round 2, game 0 => true
                | Game1 | Game2 | Game3 |
         --------------------------------
         Round1 | "A-B" |       |       |
@@ -227,11 +227,11 @@ public class TaakPloegenIndelingTests {
         int game = 0;
         String pairToPlace = "A-C";
 
-        Boolean solution = TaakPloegenIndeling.canPairGoThisRoundAndGame(tempGameBoard,pairToPlace,round,game);
-        assertThat(solution, is(false));
+        Boolean solution = TaakPloegenIndeling.canPairGoThisRound(tempGameBoard,pairToPlace,round);
+        assertThat(solution, is(true));
     }
     @Test
-    public void canPairGoThisRoundAndGame_SameInRoundSameInGame1_false(){
+    public void canPairGoThisRound_SameInRound1_false(){
         /*Temporary gameboard with pair to place [A-C], round 1, game 0 => false
                | Game1 | Game2 | Game3 |
         --------------------------------
@@ -247,7 +247,167 @@ public class TaakPloegenIndelingTests {
         int game = 0;
         String pairToPlace = "A-C";
 
-        Boolean solution = TaakPloegenIndeling.canPairGoThisRoundAndGame(tempGameBoard,pairToPlace,round,game);
+        Boolean solution = TaakPloegenIndeling.canPairGoThisRound(tempGameBoard,pairToPlace,round);
+        assertThat(solution, is(false));
+    }
+    //</editor-fold>
+
+    //<editor-fold desc="canPairGoThisGame Testen">
+    //canPairGoThisGame Testen
+    @Test
+    public void canPairGoThisGame_NoneInGame_true(){
+        /*Temporary gameboard with pair to place [A-C], round 2, game 2 => true
+               | Game1 | Game2 | Game3 |
+        --------------------------------
+        Round1 | "A-B" |       |       |
+        Round2 |       | "C-D" |       |
+        Round3 |       |       | [A-C] |
+         */
+        String[][] tempGameBoard = {{"A-B", null, null},
+                { null,"C-D", null},
+                { null, null, null}};
+        int round = 2;
+        int game = 2;
+        String pairToPlace = "A-C";
+
+        Boolean solution = TaakPloegenIndeling.canPairGoThisGame(tempGameBoard,pairToPlace,game);
+        assertThat(solution, is(true));
+    }
+    @Test
+    public void canPairGoThisGame_NoneInGame3_true(){
+        /*Temporary gameboard with pair to place [D-E], round 0, game 2 => true
+               | Game1 | Game2 | Game3 |
+        --------------------------------
+        Round1 | "A-B" |       | [D-E] |
+        Round2 |       | "C-D" |       |
+        Round3 |       |       |       |
+         */
+        String[][] tempGameBoard =
+                {{"A-B", null, null},
+                        { null,"C-D", null},
+                        { null, null, null}};
+        int round = 0;
+        int game = 2;
+        String pairToPlace = "D-E";
+
+        Boolean solution = TaakPloegenIndeling.canPairGoThisGame(tempGameBoard,pairToPlace,game);
+        assertThat(solution, is(true));
+    }
+    @Test
+    public void canPairGoThisGame_OtherInGame1_true(){
+        /*Temporary gameboard with pair to place [D-E], round 2, game 0 => true
+               | Game1 | Game2 | Game3 |
+        --------------------------------
+        Round1 | "A-B" |       |       |
+        Round2 |       | "C-D" |       |
+        Round3 | [D-E] |       |       |
+         */
+        String[][] tempGameBoard =
+                {{"A-B", null, null},
+                        { null,"C-D", null},
+                        { null, null, null}};
+        int round = 2;
+        int game = 0;
+        String pairToPlace = "D-E";
+
+        Boolean solution = TaakPloegenIndeling.canPairGoThisGame(tempGameBoard,pairToPlace,game);
+        assertThat(solution, is(true));
+    }
+    @Test
+    public void canPairGoThisGame_OtherInGame2_true(){
+        /*Temporary gameboard with pair to place [E-F], round 0, game 1 => true
+               | Game1 | Game2 | Game3 |
+        --------------------------------
+        Round1 | "A-B" |       |       |
+        Round2 |       | "C-D" |       |
+        Round3 | [D-E] |       |       |
+         */
+        String[][] tempGameBoard =
+                {{"A-B", null, null},
+                        { null,"C-D", null},
+                        { null, null, null}};
+        int round = 0;
+        int game = 1;
+        String pairToPlace = "E-F";
+
+        Boolean solution = TaakPloegenIndeling.canPairGoThisGame(tempGameBoard,pairToPlace,game);
+        assertThat(solution, is(true));
+    }
+    @Test
+    public void canPairGoThisGame_NoneInGame1_true(){
+        /*Temporary gameboard with pair to place [A-C], round 0, game 2 => true
+               | Game1 | Game2 | Game3 |
+        --------------------------------
+        Round1 | "A-B" |       | [A-C] |
+        Round2 |       | "C-D" |       |
+        Round3 |       |       |       |
+         */
+        String[][] tempGameBoard = {{"A-B", null, null},
+                { null,"C-D", null},
+                { null, null, null}};
+        int round = 0;
+        int game = 2;
+        String pairToPlace = "A-C";
+
+        Boolean solution = TaakPloegenIndeling.canPairGoThisGame(tempGameBoard,pairToPlace,game);
+        assertThat(solution, is(true));
+    }
+    @Test
+    public void canPairGoThisGame_NoneInGame2_true(){
+        /*Temporary gameboard with pair to place [A-C], round 1, game 2 => true
+               | Game1 | Game2 | Game3 |
+        --------------------------------
+        Round1 | "A-B" |       |       |
+        Round2 |       | "C-D" | [A-C] |
+        Round3 |       |       |       |
+         */
+        String[][] tempGameBoard = {{"A-B", null, null},
+                { null,"C-D", null},
+                { null, null, null}};
+        int round = 1;
+        int game = 2;
+        String pairToPlace = "A-C";
+
+        Boolean solution = TaakPloegenIndeling.canPairGoThisGame(tempGameBoard,pairToPlace,game);
+        assertThat(solution, is(true));
+    }
+    @Test
+    public void canPairGoThisGame_SameInGame1_false(){
+        /*Temporary gameboard with pair to place [A-C], round 2, game 0 => false
+               | Game1 | Game2 | Game3 |
+        --------------------------------
+        Round1 | "A-B" |       |       |
+        Round2 |       | "C-D" |       |
+        Round3 | [A-C] |       |       |
+         */
+        String[][] tempGameBoard = {{"A-B", null, null},
+                { null,"C-D", null},
+                { null, null, null}};
+        int round = 2;
+        int game = 0;
+        String pairToPlace = "A-C";
+
+        Boolean solution = TaakPloegenIndeling.canPairGoThisGame(tempGameBoard,pairToPlace,game);
+        assertThat(solution, is(false));
+    }
+    @Test
+    public void canPairGoThisGame_SameInGame2_false(){
+        /*Temporary gameboard with pair to place [A-C], round 1, game 0 => false
+               | Game1 | Game2 | Game3 |
+        --------------------------------
+        Round1 | "A-B" |       |       |
+        Round2 | [A-C] | "C-D" |       |
+        Round3 |       |       |       |
+         */
+        String[][] tempGameBoard =
+                {{"A-B", null, null},
+                        { null,"C-D", null},
+                        { null, null, null}};
+        int round = 1;
+        int game = 0;
+        String pairToPlace = "A-C";
+
+        Boolean solution = TaakPloegenIndeling.canPairGoThisGame(tempGameBoard,pairToPlace,game);
         assertThat(solution, is(false));
     }
     //</editor-fold>
