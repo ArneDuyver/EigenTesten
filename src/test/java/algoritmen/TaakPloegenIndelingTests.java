@@ -12,7 +12,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class TaakPloegenIndelingTests {
     //TODO: Testen aanvullen
-    //<editor-fold desc="Spelverdeling Testen">
+    //<editor-fold desc="Spelverdeling Tests">
     //Spelverdeling Testen
     //Invalid Input Testen
     @Test(expected = InvalidInputException.class)
@@ -42,7 +42,7 @@ public class TaakPloegenIndelingTests {
     }
     //</editor-fold>
 
-    //<editor-fold desc="getPairs Testen">
+    //<editor-fold desc="getPairs Tests">
     //getPairs Testen
     @Test(expected = InvalidInputException.class)
     public void getPairs_0_EMPTY(){
@@ -70,7 +70,7 @@ public class TaakPloegenIndelingTests {
     }
     //</editor-fold>
 
-    //<editor-fold desc="getTeamsFromPair Testen">
+    //<editor-fold desc="getTeamsFromPair Tests">
     //getTeamsFromPair Testen
     @Test
     public void getTeamsFromPair_AlineB_AandB() {
@@ -92,7 +92,7 @@ public class TaakPloegenIndelingTests {
     }
     //</editor-fold>
 
-    //<editor-fold desc="canPairGoThisRound Testen">
+    //<editor-fold desc="canPairGoThisRound Tests">
     //canPairGoThisRound Testen
     @Test
     public void canPairGoThisRound_NoneInRound_true(){
@@ -252,7 +252,7 @@ public class TaakPloegenIndelingTests {
     }
     //</editor-fold>
 
-    //<editor-fold desc="canPairGoThisGame Testen">
+    //<editor-fold desc="canPairGoThisGame Tests">
     //canPairGoThisGame Testen
     @Test
     public void canPairGoThisGame_NoneInGame_true(){
@@ -408,6 +408,108 @@ public class TaakPloegenIndelingTests {
         String pairToPlace = "A-C";
 
         Boolean solution = TaakPloegenIndeling.canPairGoThisGame(tempGameBoard,pairToPlace,game);
+        assertThat(solution, is(false));
+    }
+    //</editor-fold>
+
+    //<editor-fold desc="allTeamsInEveryGame Tests">
+    //All teams in every game tests
+    @Test
+    public void allTeamsInEveryGame_2teams1games1doubles1rounds_true(){
+        /*gameBoard 2 teams 1 doubles => true
+               | Game1 |
+        ----------------
+        Round1 | "A-B" |
+         */
+        String[][] board = {{"A-B"}};
+        int numberOfTeams = 2;
+        boolean solution = TaakPloegenIndeling.allTeamsInEveryGame(numberOfTeams,board);
+        assertThat(solution, is(true));
+    }
+    @Test
+    public void allTeamsInEveryGame_2teams2games2doubles2rounds_true(){
+        /*gameBoard 2 teams 2 doubles => true
+               | Game1 | Game2 |
+        ------------------------
+        Round1 | "A-B" |       |
+        Round2 |       | "A-B" |
+         */
+        String[][] board = {{"A-B",null},
+                            {null,"A-B"}};
+        int numberOfTeams = 2;
+        boolean solution = TaakPloegenIndeling.allTeamsInEveryGame(numberOfTeams,board);
+        assertThat(solution, is(true));
+    }
+    @Test
+    public void allTeamsInEveryGame_2teams2games1doubles2rounds_false(){
+        /*gameBoard 2 teams 2 doubles => true
+               | Game1 | Game2 |
+        ------------------------
+        Round1 | "A-B" |       |
+        Round2 |       |       |
+         */
+        String[][] board = {{"A-B",null},
+                             {null,null}};
+        int numberOfTeams = 2;
+        boolean solution = TaakPloegenIndeling.allTeamsInEveryGame(numberOfTeams,board);
+        assertThat(solution, is(false));
+    }
+    @Test
+    public void allTeamsInEveryGame_2teams1games1doubles2rounds_true(){
+        /*gameBoard 2 teams 1 doubles => true
+               | Game1 |
+        ----------------
+        Round1 | "A-B" |
+        Round2 |       |
+         */
+        String[][] board = {{"A-B"},
+                            {null}};
+        int numberOfTeams = 2;
+        boolean solution = TaakPloegenIndeling.allTeamsInEveryGame(numberOfTeams,board);
+        assertThat(solution, is(true));
+    }
+    @Test
+    public void allTeamsInEveryGame_4teams3games1doubles6rounds_true(){
+        /*gameBoard 4 teams 1 doubles => true
+                 | Game 1 |  Game 2 |  Game 3 |
+        ---------------------------------------
+        Round 1  |  A-B   |         |         |
+        Round 2  |        |   A-C   |         |
+        Ronde 3  |        |         |   A-D   |
+        Ronde 4  |        |         |   B-C   |
+        Ronde 5  |        |   B-D   |         |
+        Ronde 6  |  C-D   |         |         |
+         */
+        String[][] board = {{"A-B",null,null},
+                            {null,"A-C",null},
+                            {null,null,"A-D"},
+                            {null,null,"B-C"},
+                            {null,"B-D",null},
+                            {"C-D",null,null}};
+        int numberOfTeams = 4;
+        boolean solution = TaakPloegenIndeling.allTeamsInEveryGame(numberOfTeams,board);
+        assertThat(solution, is(true));
+    }
+    @Test
+    public void allTeamsInEveryGame_4teams3games1doubles6rounds_false(){
+        /*gameBoard 4 teams 1 doubles => false
+                 | Game 1 |  Game 2 |  Game 3 |
+        ---------------------------------------
+        Round 1  |  A-B   |         |         |
+        Round 2  |        |   A-C   |         |
+        Ronde 3  |        |         |   A-D   |
+        Ronde 4  |        |         |   B-C   |
+        Ronde 5  |        |   B-D   |         |
+        Ronde 6  |        |         |         |
+         */
+        String[][] board = {{"A-B",null,null},
+                            {null,"A-C",null},
+                            {null,null,"A-D"},
+                            {null,null,"B-C"},
+                            {null,"B-D",null},
+                            {null,null,null}};
+        int numberOfTeams = 4;
+        boolean solution = TaakPloegenIndeling.allTeamsInEveryGame(numberOfTeams,board);
         assertThat(solution, is(false));
     }
     //</editor-fold>

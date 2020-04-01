@@ -1,34 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="algoritmen.TaakPloegenIndelingTests" tests="28" skipped="0" failures="0" errors="0" timestamp="2020-03-31T18:10:59" hostname="SurfacePro4ArneDuyver" time="0.05">
+<testsuite name="algoritmen.TaakPloegenIndelingTests" tests="34" skipped="0" failures="0" errors="0" timestamp="2020-04-01T18:43:34" hostname="SurfacePro4ArneDuyver" time="0.058">
   <properties/>
-  <testcase name="canPairGoThisRound_SameInRound2_false" classname="algoritmen.TaakPloegenIndelingTests" time="0.01"/>
+  <testcase name="allTeamsInEveryGame_4teams3games1doubles6rounds_false" classname="algoritmen.TaakPloegenIndelingTests" time="0.018"/>
+  <testcase name="canPairGoThisRound_SameInRound2_false" classname="algoritmen.TaakPloegenIndelingTests" time="0.001"/>
   <testcase name="getPairs_0_EMPTY" classname="algoritmen.TaakPloegenIndelingTests" time="0.0"/>
-  <testcase name="getTeamsFromPair_YlineZ_YandZ" classname="algoritmen.TaakPloegenIndelingTests" time="0.0"/>
-  <testcase name="spelverdeling_0Ploegen_throwsException" classname="algoritmen.TaakPloegenIndelingTests" time="0.0"/>
+  <testcase name="getTeamsFromPair_YlineZ_YandZ" classname="algoritmen.TaakPloegenIndelingTests" time="0.001"/>
+  <testcase name="spelverdeling_0Ploegen_throwsException" classname="algoritmen.TaakPloegenIndelingTests" time="0.001"/>
+  <testcase name="allTeamsInEveryGame_2teams2games1doubles2rounds_false" classname="algoritmen.TaakPloegenIndelingTests" time="0.001"/>
   <testcase name="getPairs_6_AllUniqueCombABCDEF" classname="algoritmen.TaakPloegenIndelingTests" time="0.0"/>
   <testcase name="canPairGoThisGame_SameInGame1_false" classname="algoritmen.TaakPloegenIndelingTests" time="0.0"/>
+  <testcase name="allTeamsInEveryGame_2teams2games2doubles2rounds_true" classname="algoritmen.TaakPloegenIndelingTests" time="0.001"/>
   <testcase name="getPairs_2_AlineB" classname="algoritmen.TaakPloegenIndelingTests" time="0.0"/>
   <testcase name="getPairs_1_InvalidInputException" classname="algoritmen.TaakPloegenIndelingTests" time="0.0"/>
   <testcase name="canPairGoThisRound_NoneInRound_true" classname="algoritmen.TaakPloegenIndelingTests" time="0.0"/>
-  <testcase name="canPairGoThisRound_SameInRound3_false" classname="algoritmen.TaakPloegenIndelingTests" time="0.001"/>
-  <testcase name="getPairs_27_InvalidInputException" classname="algoritmen.TaakPloegenIndelingTests" time="0.0"/>
+  <testcase name="allTeamsInEveryGame_2teams1games1doubles1rounds_true" classname="algoritmen.TaakPloegenIndelingTests" time="0.0"/>
+  <testcase name="canPairGoThisRound_SameInRound3_false" classname="algoritmen.TaakPloegenIndelingTests" time="0.0"/>
+  <testcase name="allTeamsInEveryGame_2teams1games1doubles2rounds_true" classname="algoritmen.TaakPloegenIndelingTests" time="0.0"/>
+  <testcase name="getPairs_27_InvalidInputException" classname="algoritmen.TaakPloegenIndelingTests" time="0.002"/>
   <testcase name="canPairGoThisGame_NoneInGame1_true" classname="algoritmen.TaakPloegenIndelingTests" time="0.0"/>
   <testcase name="canPairGoThisGame_NoneInGame2_true" classname="algoritmen.TaakPloegenIndelingTests" time="0.0"/>
-  <testcase name="canPairGoThisGame_NoneInGame3_true" classname="algoritmen.TaakPloegenIndelingTests" time="0.001"/>
+  <testcase name="canPairGoThisGame_NoneInGame3_true" classname="algoritmen.TaakPloegenIndelingTests" time="0.0"/>
   <testcase name="canPairGoThisGame_SameInGame2_false" classname="algoritmen.TaakPloegenIndelingTests" time="0.0"/>
-  <testcase name="getTeamsFromPair_AlineB_AandB" classname="algoritmen.TaakPloegenIndelingTests" time="0.002"/>
-  <testcase name="canPairGoThisRound_NoneInRound1_true" classname="algoritmen.TaakPloegenIndelingTests" time="0.001"/>
-  <testcase name="canPairGoThisRound_NoneInRound2_true" classname="algoritmen.TaakPloegenIndelingTests" time="0.001"/>
+  <testcase name="getTeamsFromPair_AlineB_AandB" classname="algoritmen.TaakPloegenIndelingTests" time="0.0"/>
+  <testcase name="canPairGoThisRound_NoneInRound1_true" classname="algoritmen.TaakPloegenIndelingTests" time="0.0"/>
+  <testcase name="canPairGoThisRound_NoneInRound2_true" classname="algoritmen.TaakPloegenIndelingTests" time="0.0"/>
+  <testcase name="allTeamsInEveryGame_4teams3games1doubles6rounds_true" classname="algoritmen.TaakPloegenIndelingTests" time="0.001"/>
   <testcase name="canPairGoThisRound_OtherInRound_true" classname="algoritmen.TaakPloegenIndelingTests" time="0.0"/>
-  <testcase name="canPairGoThisGame_OtherInGame1_true" classname="algoritmen.TaakPloegenIndelingTests" time="0.0"/>
+  <testcase name="canPairGoThisGame_OtherInGame1_true" classname="algoritmen.TaakPloegenIndelingTests" time="0.001"/>
   <testcase name="canPairGoThisGame_OtherInGame2_true" classname="algoritmen.TaakPloegenIndelingTests" time="0.0"/>
-  <testcase name="spelverdeling_neg1rondes_throwsException" classname="algoritmen.TaakPloegenIndelingTests" time="0.0"/>
-  <testcase name="spelverdeling_0dubbels_throwsException" classname="algoritmen.TaakPloegenIndelingTests" time="0.0"/>
-  <testcase name="canPairGoThisRound_OtherInRound1_true" classname="algoritmen.TaakPloegenIndelingTests" time="0.0"/>
+  <testcase name="spelverdeling_neg1rondes_throwsException" classname="algoritmen.TaakPloegenIndelingTests" time="0.001"/>
+  <testcase name="spelverdeling_0dubbels_throwsException" classname="algoritmen.TaakPloegenIndelingTests" time="0.002"/>
+  <testcase name="canPairGoThisRound_OtherInRound1_true" classname="algoritmen.TaakPloegenIndelingTests" time="0.001"/>
   <testcase name="spelverdeling_0Spelletjes_throwsException" classname="algoritmen.TaakPloegenIndelingTests" time="0.0"/>
   <testcase name="canPairGoThisGame_NoneInGame_true" classname="algoritmen.TaakPloegenIndelingTests" time="0.0"/>
   <testcase name="canPairGoThisRound_SameInRound1_false" classname="algoritmen.TaakPloegenIndelingTests" time="0.0"/>
   <testcase name="spelverdeling_onevenPloegen_throwsException" classname="algoritmen.TaakPloegenIndelingTests" time="0.0"/>
-  <system-out><![CDATA[]]></system-out>
+  <system-out><![CDATA[Already played: [A, B] & allTeams: [A, B, C, D]
+Already played: [A, B] & allTeams: [A, B]
+Already played: [] & allTeams: [A, B]
+Already played: [A, B] & allTeams: [A, B]
+Already played: [A, B] & allTeams: [A, B]
+Already played: [A, B] & allTeams: [A, B]
+Already played: [A, B] & allTeams: [A, B]
+Already played: [A, B, C, D] & allTeams: [A, B, C, D]
+Already played: [A, C, B, D] & allTeams: [A, B, C, D]
+Already played: [A, D, B, C] & allTeams: [A, B, C, D]
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

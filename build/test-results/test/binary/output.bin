@@ -1,0 +1,12 @@
+1Already played: [A, B] & allTeams: [A, B, C, D]
++Already played: [A, B] & allTeams: [A, B]
+'Already played: [] & allTeams: [A, B]
+
++Already played: [A, B] & allTeams: [A, B]
+
++Already played: [A, B] & allTeams: [A, B]
++Already played: [A, B] & allTeams: [A, B]
++Already played: [A, B] & allTeams: [A, B]
+7Already played: [A, B, C, D] & allTeams: [A, B, C, D]
+7Already played: [A, C, B, D] & allTeams: [A, B, C, D]
+7Already played: [A, D, B, C] & allTeams: [A, B, C, D]
