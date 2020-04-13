@@ -611,4 +611,51 @@ public class TaakPloegenIndelingTests {
         assertThat(solution, is(false));
     }
     //</editor-fold>
+
+    //<editor-fold desc="isEmpty tests">
+    @Test
+    public void isEmpty_noElementsList_true(){
+        String[] list = {};
+        boolean solution = TaakPloegenIndeling.isEmpty(list);
+        assertThat(solution, is(true));
+    }
+    @Test
+    public void isEmpty_emptyList1_true(){
+        String[] list = {null};
+        boolean solution = TaakPloegenIndeling.isEmpty(list);
+        assertThat(solution, is(true));
+    }
+    @Test
+    public void isEmpty_emptyList2_true(){
+        String[] list = {null,null};
+        boolean solution = TaakPloegenIndeling.isEmpty(list);
+        assertThat(solution, is(true));
+    }
+
+    @Test
+    public void isEmpty_notEmptyList1_false(){
+        String[] list = {null,"A-C",null};
+        boolean solution = TaakPloegenIndeling.isEmpty(list);
+        assertThat(solution, is(false));
+    }
+    @Test
+    public void isEmpty_notEmptyList2_false(){
+        String[] list = {"A-C",null};
+        boolean solution = TaakPloegenIndeling.isEmpty(list);
+        assertThat(solution, is(false));
+    }
+
+    @Test
+    public void isEmpty_notEmptyList3_false(){
+        String[] list = {null,"A-C"};
+        boolean solution = TaakPloegenIndeling.isEmpty(list);
+        assertThat(solution, is(false));
+    }
+    @Test
+    public void isEmpty_notEmptyList4_false(){
+        String[] list = {"A-C"};
+        boolean solution = TaakPloegenIndeling.isEmpty(list);
+        assertThat(solution, is(false));
+    }
+    //</editor-fold>
 }
