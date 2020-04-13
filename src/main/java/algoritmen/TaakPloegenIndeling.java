@@ -9,10 +9,7 @@ public class TaakPloegenIndeling {
 
 
     public static void main(String[] args) {
-        String[]  doubles = {null, null};
-        System.out.println(isEmpty(doubles));
-        //toonVerdeling(2,1,1,1);
-
+        toonVerdeling(6,10,3,5);
     }
 
 
@@ -41,16 +38,16 @@ public class TaakPloegenIndeling {
 
         //Make the starting (empty) gameboard
         String[][] tempBoard = new String[rondes][spelletjes];
-        return solveSpelverdeling(ploegen,pairs, pairsUsed, doubles, doublesUsed, doublesUsedIndex,0,spelletjes, 0, new ArrayList<>(), rondes, 0, new ArrayList<>(), tempBoard);
+        return solveSpelverdeling(ploegen,pairs, pairsUsed, doubles, doublesUsed, doublesUsedIndex,0,spelletjes, 0, new ArrayList<>(), rondes, 0, new ArrayList<>(), tempBoard,0);
     }
 
     private static Optional<String[][]> solveSpelverdeling(int numberOfTeams,ArrayList<String> pairs, ArrayList<String> pairsUsed,
                                                            String[] doubles, ArrayList<String> doublesUsed, ArrayList<Integer> doublesUsedIndex,int currentDoublesIndex,
                                                            int games, int currentGame, ArrayList<Integer> prevGame, int rounds, int currentRound, ArrayList<Integer> prevRound,
-                                                           String[][] tempBoard) {
+                                                           String[][] tempBoard, long numberOfIterations) {
         //TODO: delete these debugging prints
         System.out.println(" ");
-        System.out.println("*****VOLGENDE ITERATIE*****");
+        System.out.println("*****VOLGENDE ITERATIE***** IterationNumber = " + numberOfIterations);
         //System.out.println("#Teams: " + numberOfTeams + " & " + "#games: " + games +" & " +"#rounds: " + rounds);
         System.out.println("pairs: " + pairs + " & " + "pairsUsed: " + pairsUsed);
         System.out.println("doubles: " + doubles + " & " + "doublesUsed: " + doublesUsed);
@@ -59,21 +56,24 @@ public class TaakPloegenIndeling {
         System.out.println("TEMPBOARD: ");
         printBoard(tempBoard);
 
-
+        //TODO: Uitleg in het engels schrijven
+        //TODO: Uitleg nakijken
+        //TODO: Eventueel extra uitleg schrijven
+        numberOfIterations ++;
         //DONE 1: If the pairsArrayList is empty and every team plays every game then return tempVerdeling as OptionalNullable
         if (pairs.isEmpty() && allTeamsInEveryGame(numberOfTeams,tempBoard)){
             return Optional.of(tempBoard);
         }
         //DONE 2: Else if pairsUsed is empty and u try to put the first pair of pairs further than the last round or u used up all pairs and doubles then return Optional.empty
-        else if ((pairsUsed.isEmpty() && currentRound >= rounds) || (pairs.isEmpty() && isEmpty(doubles))){
+        else if ((pairsUsed.isEmpty() && currentRound >= rounds) || (pairs.isEmpty() && isEmpty(doubles)) || numberOfIterations >= 1400){
             return Optional.empty();
         } else {
-            //TODO: nadenken over de overgang van origineel naar doubles: is eig niet nodig denkk
             //DONE 3: Choose the right pair to place (If the pairs ArrayList is empty use the doubles)
             String pairToPlace = "";
             if (!pairs.isEmpty()){
                 pairToPlace = pairs.get(0);
-                //TODO: hier de logica voor de originele paren zetten
+                //TODO: delete
+                System.out.println("Pair to place = "+pairToPlace);
                 //optie 1: trying to put the pair a game to far => backtracking needed
                 if (currentGame>=games){
                     //pairs lijsten een fase terugzetten
@@ -95,18 +95,18 @@ public class TaakPloegenIndeling {
                     prevGame.remove(prevGame.size()-1);
                     prevRound.remove(prevRound.size()-1);
 
-                    return solveSpelverdeling(numberOfTeams,pairs,pairsUsed,doubles,doublesUsed,doublesUsedIndex,currentDoublesIndex,games,currentGame,prevGame,rounds,currentRound,prevRound,tempBoard);
+                    return solveSpelverdeling(numberOfTeams,pairs,pairsUsed,doubles,doublesUsed,doublesUsedIndex,currentDoublesIndex,games,currentGame,prevGame,rounds,currentRound,prevRound,tempBoard,numberOfIterations);
                 }
                 //optie 2: trying to put the pair in a round too far => try the next game
                 else if (currentRound >= rounds){
                     currentGame = currentGame + 1;
                     currentRound = 0;
-                    return solveSpelverdeling(numberOfTeams,pairs,pairsUsed,doubles,doublesUsed,doublesUsedIndex,currentDoublesIndex,games,currentGame,prevGame,rounds,currentRound,prevRound,tempBoard);
+                    return solveSpelverdeling(numberOfTeams,pairs,pairsUsed,doubles,doublesUsed,doublesUsedIndex,currentDoublesIndex,games,currentGame,prevGame,rounds,currentRound,prevRound,tempBoard,numberOfIterations);
                 }
                 //optie 3: pair cant go this game => try the next game
                 else if (!canPairGoThisGame(tempBoard,pairToPlace,currentGame)){
                     currentRound = currentRound+1;
-                    return solveSpelverdeling(numberOfTeams,pairs,pairsUsed,doubles,doublesUsed,doublesUsedIndex,currentDoublesIndex,games,currentGame,prevGame,rounds,currentRound,prevRound,tempBoard);
+                    return solveSpelverdeling(numberOfTeams,pairs,pairsUsed,doubles,doublesUsed,doublesUsedIndex,currentDoublesIndex,games,currentGame,prevGame,rounds,currentRound,prevRound,tempBoard,numberOfIterations);
                 }
                 //optie 4: the pair can be placed here => place it, update lists
                 else if (canPairGoThisGame(tempBoard,pairToPlace,currentGame) && canPairGoThisRound(tempBoard,pairToPlace,currentRound) && !alreadyPairHere(tempBoard,currentRound,currentGame)){
@@ -118,28 +118,34 @@ public class TaakPloegenIndeling {
                     prevGame.add(currentGame);
                     currentRound = 0;
                     currentGame = 0;
-                    return solveSpelverdeling(numberOfTeams,pairs,pairsUsed,doubles,doublesUsed,doublesUsedIndex,currentDoublesIndex,games,currentGame,prevGame,rounds,currentRound,prevRound,tempBoard);
+                    return solveSpelverdeling(numberOfTeams,pairs,pairsUsed,doubles,doublesUsed,doublesUsedIndex,currentDoublesIndex,games,currentGame,prevGame,rounds,currentRound,prevRound,tempBoard,numberOfIterations);
                 }
+                //Option 5: pair cant go this spot but can go this game => try next round
                 else{
                     currentRound = currentRound + 1;
-                    return solveSpelverdeling(numberOfTeams,pairs,pairsUsed,doubles,doublesUsed,doublesUsedIndex,currentDoublesIndex,games,currentGame,prevGame,rounds,currentRound,prevRound,tempBoard);
+                    return solveSpelverdeling(numberOfTeams,pairs,pairsUsed,doubles,doublesUsed,doublesUsedIndex,currentDoublesIndex,games,currentGame,prevGame,rounds,currentRound,prevRound,tempBoard,numberOfIterations);
                 }
             }
             else {
-                //TODO: logica voor de doubles schrijven!!!
-                throw new UnsupportedOperationException();
-
-                //ALS de doubles index te groot is dan volgende positie proberen met het eerste element van de doubles
+                //Trying a double too far => try next round and reset doublesUsedIndex
                 if (currentDoublesIndex > doubles.length-1){
                     currentDoublesIndex = 0;
                     currentRound = currentRound + 1;
-                    return solveSpelverdeling(numberOfTeams,pairs,pairsUsed,doubles,doublesUsed,doublesUsedIndex,currentDoublesIndex,games,currentGame,prevGame,rounds,currentRound,prevRound,tempBoard);
+                    return solveSpelverdeling(numberOfTeams,pairs,pairsUsed,doubles,doublesUsed,doublesUsedIndex,currentDoublesIndex,games,currentGame,prevGame,rounds,currentRound,prevRound,tempBoard,numberOfIterations);
                 } else {
                     //Search for the next not null string in doubles
-                    while(doubles[currentDoublesIndex] == null){
+                    while(doubles[currentDoublesIndex] == null) {
                         currentDoublesIndex++;
+                        //Option 0: Trying a double too far => try next round and reset doublesUsedIndex
+                        if (currentDoublesIndex > doubles.length - 1) {
+                            currentDoublesIndex = 0;
+                            currentRound = currentRound + 1;
+                            return solveSpelverdeling(numberOfTeams, pairs, pairsUsed, doubles, doublesUsed, doublesUsedIndex, currentDoublesIndex, games, currentGame, prevGame, rounds, currentRound, prevRound, tempBoard,numberOfIterations);
+                        }
                     }
                     pairToPlace = doubles[currentDoublesIndex];
+                    //TODO: delete
+                    System.out.println("Pair to place = "+pairToPlace);
                     //optie 1: trying to put the pair a game to far => backtracking needed or no option possible
                     if (currentGame>=games) {
                         //couldn't place any doubles anywhere => return Optional.empty
@@ -149,19 +155,58 @@ public class TaakPloegenIndeling {
                         //put the previous double a round further
                         else {
                             //doubles lijsten een fase terugzetten
-                            
+                            String toReset = doublesUsed.get(doublesUsed.size()-1);
+                            int toResetIndex = doublesUsedIndex.get(doublesUsedIndex.size()-1);
+                            doubles[toResetIndex] = toReset;
+                            doublesUsed.remove(doublesUsed.size()-1);
+                            doublesUsedIndex.remove(doublesUsedIndex.size()-1);
+                            currentDoublesIndex = 0;
+
                             //Het paar op positie laatste item van prevRound en prevGame wissen
+                            int previousRound = prevRound.get(prevRound.size()-1);
+                            int previousGame = prevGame.get(prevGame.size()-1);
+                            tempBoard[previousRound][previousGame] = null;
 
                             //currentGame wordt laatste item previousGame en currentRound wordt laatste item previousRound + 1
+                            currentGame = prevGame.get(prevGame.size()-1);
+                            currentRound = prevRound.get(prevRound.size()-1) +1;
 
                             //laatste items van previousGame en previousRound wissen
+                            prevGame.remove(prevGame.size()-1);
+                            prevRound.remove(prevRound.size()-1);
 
-                            return solveSpelverdeling(numberOfTeams, pairs, pairsUsed, doubles, doublesUsed, doublesUsedIndex, currentDoublesIndex, games, currentGame, prevGame, rounds, currentRound, prevRound, tempBoard);
+                            return solveSpelverdeling(numberOfTeams, pairs, pairsUsed, doubles, doublesUsed, doublesUsedIndex, currentDoublesIndex, games, currentGame, prevGame, rounds, currentRound, prevRound, tempBoard,numberOfIterations);
                         }
                     }
                     //optie 2: trying to put the pair in a round too far => try the next game
+                    else if (currentRound >= rounds){
+                        currentGame = currentGame + 1;
+                        currentRound = 0;
+                        return solveSpelverdeling(numberOfTeams,pairs,pairsUsed,doubles,doublesUsed,doublesUsedIndex,currentDoublesIndex,games,currentGame,prevGame,rounds,currentRound,prevRound,tempBoard,numberOfIterations);
+                    }
                     //optie 3: pair cant go this game => try the next pair
+                    else if (!canPairGoThisGame(tempBoard,pairToPlace,currentGame)){
+                        currentDoublesIndex = currentDoublesIndex+1;
+                        return solveSpelverdeling(numberOfTeams,pairs,pairsUsed,doubles,doublesUsed,doublesUsedIndex,currentDoublesIndex,games,currentGame,prevGame,rounds,currentRound,prevRound,tempBoard,numberOfIterations);
+                    }
                     //optie 4: the pair can be placed here => place it, update lists
+                    else if (canPairGoThisGame(tempBoard,pairToPlace,currentGame) && canPairGoThisRound(tempBoard,pairToPlace,currentRound) && !alreadyPairHere(tempBoard,currentRound,currentGame)){
+                        tempBoard[currentRound][currentGame] = pairToPlace;
+                        doublesUsed.add(pairToPlace);
+                        doublesUsedIndex.add(currentDoublesIndex);
+                        doubles[currentDoublesIndex] = null;
+                        currentDoublesIndex = 0;
+                        prevRound.add(currentRound);
+                        prevGame.add(currentGame);
+                        currentRound = 0;
+                        currentGame = 0;
+                        return solveSpelverdeling(numberOfTeams,pairs,pairsUsed,doubles,doublesUsed,doublesUsedIndex,currentDoublesIndex,games,currentGame,prevGame,rounds,currentRound,prevRound,tempBoard,numberOfIterations);
+                    }
+                    //Option 5: pair cant go this spot but can go this game => try next double
+                    else {
+                        currentDoublesIndex = currentDoublesIndex+1;
+                        return solveSpelverdeling(numberOfTeams,pairs,pairsUsed,doubles,doublesUsed,doublesUsedIndex,currentDoublesIndex,games,currentGame,prevGame,rounds,currentRound,prevRound,tempBoard,numberOfIterations);
+                    }
                 }
             }
         }
