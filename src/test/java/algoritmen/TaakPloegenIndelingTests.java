@@ -11,7 +11,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class TaakPloegenIndelingTests {
-    //TODO: Testen aanvullen
+    //TODO: eventueel nog testen toevoegen
     //<editor-fold desc="Spelverdeling Tests">
     //Spelverdeling Testen
     //Invalid Input Testen
@@ -39,6 +39,69 @@ public class TaakPloegenIndelingTests {
     public void spelverdeling_neg1rondes_throwsException(){
         // 1. ARRANGE
         Optional<String[][]> oplossing = TaakPloegenIndeling.spelverdeling(4,3,3,-1);
+    }
+
+    @Test
+    public void spelverdeling_2_2_1_1_OptionalEmpty(){
+        Optional<String[][]> solution = TaakPloegenIndeling.spelverdeling(2, 2, 1, 1);
+        assert(solution.equals(Optional.empty()));
+    }
+
+    @Test
+    public void spelverdeling_2_1_1_1_NotOptionalEmpty(){
+        Optional<String[][]> solution = TaakPloegenIndeling.spelverdeling(2, 1, 1, 1);
+        assert(!solution.equals(Optional.empty()));
+    }
+
+    @Test
+    public void spelverdeling_2_1_2_1_NotOptionalEmpty(){
+        Optional<String[][]> solution = TaakPloegenIndeling.spelverdeling(2, 1, 2, 1);
+        assert(!solution.equals(Optional.empty()));
+    }
+
+    @Test
+    public void spelverdeling_2_2_2_2_NotOptionalEmpty(){
+        Optional<String[][]> solution = TaakPloegenIndeling.spelverdeling(2, 2, 2, 2);
+        assert(!solution.equals(Optional.empty()));
+    }
+
+    @Test
+    public void spelverdeling_4_3_1_6_NotOptionalEmpty(){
+        Optional<String[][]> solution = TaakPloegenIndeling.spelverdeling(4, 3, 1, 6);
+        assert(!solution.equals(Optional.empty()));
+    }
+
+    @Test
+    public void spelverdeling_4_4_2_6_NotOptionalEmpty(){
+        Optional<String[][]> solution = TaakPloegenIndeling.spelverdeling(4, 4, 2, 6);
+        assert(!solution.equals(Optional.empty()));
+    }
+    //</editor-fold>
+
+    //<editor-fold desc="getTeams tests">
+    @Test
+    public void getTeams_0_EMPTY(){
+        String[] solution = TaakPloegenIndeling.getTeams(0);
+        String[] realSolution = new String[0];
+        assertThat(solution, is(realSolution));
+    }
+    @Test
+    public void getTeams_1_A(){
+        String[] solution = TaakPloegenIndeling.getTeams(1);
+        String[] realSolution = {"A"};
+        assertThat(solution, is(realSolution));
+    }
+    @Test
+    public void getTeams_26_ABCDEFGHIJKLMNOPQRSTUVWXYZ(){
+        String[] solution = TaakPloegenIndeling.getTeams(26);
+        String[] realSolution = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
+        assertThat(solution, is(realSolution));
+    }
+    @Test
+    public void getTeams_4_ABCD(){
+        String[] solution = TaakPloegenIndeling.getTeams(4);
+        String[] realSolution = {"A","B","C","D"};
+        assertThat(solution, is(realSolution));
     }
     //</editor-fold>
 
@@ -408,6 +471,41 @@ public class TaakPloegenIndelingTests {
         String pairToPlace = "A-C";
 
         Boolean solution = TaakPloegenIndeling.canPairGoThisGame(tempGameBoard,pairToPlace,game);
+        assertThat(solution, is(false));
+    }
+    //</editor-fold>
+
+    //<editor-fold desc="alreadyPairHere tests">
+    @Test
+    public void alreadyPairHere_1_1_true(){
+        String[][] board =
+                {{"A-B"}};
+        boolean solution = TaakPloegenIndeling.alreadyPairHere(board,0,0);
+        assertThat(solution, is(true));
+    }
+    @Test
+    public void alreadyPairHere_1_1_false(){
+        String[][] board =
+                {{null}};
+        boolean solution = TaakPloegenIndeling.alreadyPairHere(board,0,0);
+        assertThat(solution, is(false));
+    }
+    @Test
+    public void alreadyPairHere_2_2_true(){
+        String[][] board =
+                {{"A-B",null,null},
+                 {null,null,null},
+                 {null,null,"C-D"}};
+        boolean solution = TaakPloegenIndeling.alreadyPairHere(board,2,2);
+        assertThat(solution, is(true));
+    }
+    @Test
+    public void alreadyPairHere_2_2_false(){
+        String[][] board =
+                {{"A-B",null,null},
+                {null,null,null},
+                {null,null,null}};
+        boolean solution = TaakPloegenIndeling.alreadyPairHere(board,2,2);
         assertThat(solution, is(false));
     }
     //</editor-fold>

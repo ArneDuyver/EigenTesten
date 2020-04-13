@@ -10,7 +10,7 @@ public class TaakPloegenIndeling {
 
     public static void main(String[] args) {
         //System.out.println("Hello\nWorld");
-        toonVerdeling(4,4,2,6);
+        toonVerdeling(2,1,1,1);
 
     }
 
@@ -18,7 +18,7 @@ public class TaakPloegenIndeling {
     public static Optional<String[][]> spelverdeling(int ploegen, int spelletjes, int dubbels, int rondes) {
         //Input validation
         if (ploegen % 2 != 0 || ploegen < 2 || spelletjes < 1 || dubbels < 1 || rondes < 1 || ploegen > 26) {
-            //TODO feedback in de terminal printen
+            //TODO: feedback in de terminal printen
             throw new algoritmen.InvalidInputException();
         }
         //Make teampairs, doubles, empty pairsUsed and empty doublesUsed ArrayLists
@@ -72,18 +72,16 @@ public class TaakPloegenIndeling {
                 pairToPlace = doubles.get(0);
             }
             System.out.println("pairToPlace: "+pairToPlace); //TODO delete
-            //optie 1: backtrack TODO Backtrack werkt nog niet
+            //optie 1: backtrack TODO: werkt nog niet correct
             if (currentGame>=games){
                 //pairs en/of doubles lijsten een fase terugzetten
                 String toReset;
-                //TODO deze if statements kloppen nog niet
-                if (!pairsUsed.isEmpty()){
+                if (doublesUsed.isEmpty()){
                     toReset = pairsUsed.get(pairsUsed.size()-1);
                     pairs.add(0,toReset);
                     pairsUsed.remove(pairsUsed.size()-1);
 
-                } else if (!doublesUsed.isEmpty()){ //gaat bijna nooit empty zijn want want hebben die geinitieerd//TODO: nog oplossen wat het wordt als je ook doubles kan overslaan bij het zoeken
-                    //TODO deze if statements kloppen nog niet
+                } else { //gaat bijna nooit empty zijn want want hebben die geinitieerd//TODO: nog oplossen wat het wordt als je ook doubles kan overslaan bij het zoeken ZIE VERSIE 2
                     toReset = doublesUsed.get(doublesUsed.size()-1);
                     doublesUsed.remove(toReset);
                     doubles.add(0,toReset);
