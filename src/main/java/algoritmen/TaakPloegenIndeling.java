@@ -9,7 +9,7 @@ public class TaakPloegenIndeling {
 
 
     public static void main(String[] args) {
-        toonVerdeling(6,10,3,5);
+        toonVerdeling(6,5,2,5);
     }
 
 
@@ -20,7 +20,7 @@ public class TaakPloegenIndeling {
             throw new algoritmen.InvalidInputException();
         }
         //Make teampairs, doubles, empty pairsUsed and empty doublesUsed ArrayLists
-        ArrayList<String> pairs = getPairs(ploegen);
+        ArrayList<String> pairs = getSpecialOrederedPairs(ploegen);
         ArrayList<String> doublesArrayList = new ArrayList<>();
         for (int i = 1; i <= dubbels - 1; i++) {
             for (int j = 0; j < pairs.size();j++){
@@ -65,7 +65,7 @@ public class TaakPloegenIndeling {
             return Optional.of(tempBoard);
         }
         //DONE 2: Else if pairsUsed is empty and u try to put the first pair of pairs further than the last round or u used up all pairs and doubles then return Optional.empty
-        else if ((pairsUsed.isEmpty() && currentRound >= rounds) || (pairs.isEmpty() && isEmpty(doubles)) || numberOfIterations >= 1400){
+        else if ((pairsUsed.isEmpty() && currentRound >= rounds) || (pairs.isEmpty() && isEmpty(doubles)) ){//|| numberOfIterations >= 1400){ //TODO: Last argument is a stackOverflow Protection
             return Optional.empty();
         } else {
             //DONE 3: Choose the right pair to place (If the pairs ArrayList is empty use the doubles)
@@ -258,6 +258,7 @@ public class TaakPloegenIndeling {
         return Arrays.copyOfRange(letters, 0, numberOfTeams);
     }
 
+
     public static ArrayList<String> getPairs(int numberOfTeams) {
         if (numberOfTeams < 2 || numberOfTeams > 26) {
             throw new InvalidInputException();
@@ -272,7 +273,31 @@ public class TaakPloegenIndeling {
                 pairs.add(pair);
             }
         }
+
         return pairs;
+    }
+
+    //TODO: ORDEN DE PAREN ZODAT NIET A in de eerste zoveel elementen zit => minder iteraties nodig
+    public static ArrayList<String> getSpecialOrederedPairs(int numberOfTeams){
+        ArrayList<String> pairs = getPairs(numberOfTeams);
+        int pairsPerRound = pairs.size()/2;
+        ArrayList<String> pairsOrdered = new ArrayList<>();
+        int index = 0;
+        while (!pairs.isEmpty()){
+            ArrayList<Integer> indices = new ArrayList<>();
+            for (int i = 1; i<pairsPerRound; i++){
+                String toSwap = pairs.get(index);
+                pairsOrdered.add(toSwap);
+                indices.add(index);
+                index = ((index+i)/(pairsPerRound-1))*(pairs.size());
+            }
+            for (int j = 0; j < indices.size()-1; j++){
+                int plaats = indices.get(j)-j;
+                pairs.remove(plaats);
+            }
+            index = 0;
+        }
+        return  pairsOrdered;
     }
 
     public static ArrayList<String> getTeamsFromPair(String pair) {
