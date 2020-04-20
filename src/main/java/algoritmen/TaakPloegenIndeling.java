@@ -20,7 +20,7 @@ public class TaakPloegenIndeling {
             throw new algoritmen.InvalidInputException();
         }
         //Make teampairs, doubles, empty pairsUsed and empty doublesUsed ArrayLists
-        ArrayList<String> pairs = getSpecialOrederedPairs(ploegen);
+        ArrayList<String> pairs = getPairs(ploegen);
         ArrayList<String> doublesArrayList = new ArrayList<>();
         for (int i = 1; i <= dubbels - 1; i++) {
             for (int j = 0; j < pairs.size();j++){

@@ -76,6 +76,18 @@ public class TaakPloegenIndelingTests {
         Optional<String[][]> solution = TaakPloegenIndeling.spelverdeling(4, 4, 2, 6);
         assert(!solution.equals(Optional.empty()));
     }
+
+    @Test
+    public void spelverdeling_16_10_3_20_NotOptionalEmpty(){
+        Optional<String[][]> solution = TaakPloegenIndeling.spelverdeling(16, 10, 3, 20);
+        assert(!solution.equals(Optional.empty()));
+    }
+
+    @Test
+    public void spelverdeling_6_5_2_5_NotOptionalEmpty(){
+        Optional<String[][]> solution = TaakPloegenIndeling.spelverdeling(6, 5, 2, 5);
+        assert(!solution.equals(Optional.empty()));
+    }
     //</editor-fold>
 
     //<editor-fold desc="getTeams tests">
