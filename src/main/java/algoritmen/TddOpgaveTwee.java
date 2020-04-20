@@ -3,16 +3,17 @@ package algoritmen;
 import java.util.*;
 
 public class TddOpgaveTwee {
-    //eerst: javac tddOpgaveTwee.java
-    //dan: cat voorbeeld.invoer | java -cp . tddOpgaveTwee WERKTE NIET BIJ MIJ
-    //WEL: cat voorbeeld.invoer | java -classpath ../../.. algoritme.tddOpgaveTwee
+    //in root folder: javac -d build src/main/java/algoritmen/TddOpgaveTwee.java
+    //in root folder: cat src/main/java/algoritmen/voorbeeld.invoer | java -cp build/ algoritmen.TddOpgaveTwee
     public static void main(String[] args) {
+        //<editor-fold desc="Code">
         Scanner sc = new Scanner(System.in);
         ArrayList<Integer> numbs = new ArrayList<>();
         //
         while(sc.hasNextLine()){
             String s = sc.nextLine();
-            int numb = Integer.parseInt(s);
+            String newS = s.replaceAll("\\D+",""); //replaces everything thats not a digit
+            int numb = Integer.parseInt(newS);
             numbs.add(numb);
         }
         String[] closets = new String[numbs.get(0)];
@@ -34,9 +35,9 @@ public class TddOpgaveTwee {
 
         System.out.println("output");
         for (int i = 0; i < closets.length;i++){
-            System.out.println((index+1) + " " + closets[i]);
+            System.out.println((i+1) + " " + closets[i]);
         }
-
+        //</editor-fold>
     }
 
     public static String makeShoeBox(ArrayList<Integer> shoes){
