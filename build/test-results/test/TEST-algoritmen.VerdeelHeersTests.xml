@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="algoritmen.VerdeelHeersTests" tests="8" skipped="0" failures="0" errors="0" timestamp="2020-04-26T23:36:54" hostname="PC-ALPHA" time="0.006">
+  <properties/>
+  <testcase name="getVolgordeFouten_10987654321_45" classname="algoritmen.VerdeelHeersTests" time="0.004"/>
+  <testcase name="getVolgordeFouten_1435867_3" classname="algoritmen.VerdeelHeersTests" time="0.0"/>
+  <testcase name="getVolgordeFouten_12_0" classname="algoritmen.VerdeelHeersTests" time="0.0"/>
+  <testcase name="getVolgordeFouten_21_1" classname="algoritmen.VerdeelHeersTests" time="0.0"/>
+  <testcase name="getVolgordeFouten_231_2" classname="algoritmen.VerdeelHeersTests" time="0.0"/>
+  <testcase name="getVolgordeFouten_321_3" classname="algoritmen.VerdeelHeersTests" time="0.0"/>
+  <testcase name="getVolgordeFouten_0Min1_1" classname="algoritmen.VerdeelHeersTests" time="0.0"/>
+  <testcase name="getVolgordeFouten_Min10_0" classname="algoritmen.VerdeelHeersTests" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
