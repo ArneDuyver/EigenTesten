@@ -36,6 +36,13 @@ public class VerdeelHeersTests {
     }
 
     @Test
+    public void getVolgordeFouten_127634_5(){
+        int[] array = {1,2,7,6,3,4};
+        int solution = VerdeelHeers.getVolgordeFouten(array);
+        assertThat(solution,is(5));
+    }
+
+    @Test
     public void getVolgordeFouten_1435867_3(){
         int[] array = {1,4,3,5,8,6,7};
         int solution = VerdeelHeers.getVolgordeFouten(array);
